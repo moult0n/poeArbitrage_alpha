@@ -1,2 +1,6 @@
-#ignore json files
+#ignore json, txt, and sublime files
 *.json
+*.txt
+*.sublime-project
+*.sublime-workspace
+

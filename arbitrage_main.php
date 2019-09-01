@@ -1,6 +1,7 @@
 <?php 
 include_once 'framework.php';
 include 'itemAnalysis.php';
+include_once 'poeNinjaConversion.php';
 
 $league = 'Legion';
 $serverTick = 0;
@@ -9,6 +10,7 @@ $urlStringRedirec = 'https://www.pathofexile.com/trade/search/Legion/';
 $currencyArray = ['exa','chaos'];
 $queryFlip = "select * from flip";
 static $componentBaseQuery = "select * from component where id = ";
+getConversionInfo($league);
 $arrayComponent = [
 	'id' => 0,
 	'name' => '',
@@ -103,7 +105,7 @@ if($resultFlip = mysqli_query($link, $queryFlip)){
 				$c1 = $arrayFlip['component1']['analysis']['averagePrice'] * $arrayFlip['component1']['databaseInfo']['fullSet'];
 				$c2 = $arrayFlip['component2']['analysis']['averagePrice'] * $arrayFlip['component2']['databaseInfo']['fullSet'];
 				$arrayFlip['costDifference'] = $c2 - $c1;
-				printf("Grapped data for %s (%d/%d) --- Estimated Profit is %.2f\n chaos.", $arrayFlip['name'], $arrayFlip['id'],$numFlips, $arrayFlip['costDifference']);
+				printf("Grapped data for %s (%d/%d) --- Estimated Profit is %.2f chaos.\n", $arrayFlip['name'], $arrayFlip['id'],$numFlips, $arrayFlip['costDifference']);
 				if($arrayFlip['costDifference'] > 0){
 					$urlString1 = $urlStringRedirec . $arrayFlip['component1']['querySerial'];
 					$urlString2 = $urlStringRedirec . $arrayFlip['component2']['querySerial'];
@@ -115,7 +117,7 @@ if($resultFlip = mysqli_query($link, $queryFlip)){
 				$c2 = $arrayFlip['component2']['analysis']['averagePrice'] * $arrayFlip['component2']['databaseInfo']['fullSet'];
 				$c3 = $arrayFlip['component3']['analysis']['averagePrice'] * $arrayFlip['component3']['databaseInfo']['fullSet'];
 				$arrayFlip['costDifference'] = $c3 - $c2 - $c1;
-				printf("Grapped data for %s (%d/%d) --- Estimated Profit is %.2f\n chaos.", $arrayFlip['name'], $arrayFlip['id'],$numFlips, $arrayFlip['costDifference']);
+				printf("Grapped data for %s (%d/%d) --- Estimated Profit is %.2f chaos.\n", $arrayFlip['name'], $arrayFlip['id'],$numFlips, $arrayFlip['costDifference']);
 				if($arrayFlip['costDifference'] > 0){
 					$urlString1 = $urlStringRedirec . $arrayFlip['component1']['querySerial'];
 					$urlString2 = $urlStringRedirec . $arrayFlip['component2']['querySerial'];

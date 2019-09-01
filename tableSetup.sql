@@ -6,7 +6,7 @@ drop table IF EXISTS component;
 CREATE TABLE IF NOT EXISTS component (
 	id 				INT(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	name			VARCHAR(50) NOT NULL,
-	query 			VARCHAR(200) NOT NULL,
+	query 			VARCHAR(400) NOT NULL,
 	fullSet			INT NOT NULL
 )ENGINE = InnoDB;
 
@@ -29,6 +29,9 @@ alter table flip add foreign key (componentId3) references component(id);
 #insert into component (name,query,fullSet) values ('The Doctor','{"query":{"status":{"option":"online"},"type":"The Doctor","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',8);
 #insert into component (name,query,fullSet) values ('Headhunter','{"query":{"status":{"option":"online"},"name":"Headhunter","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',2);
 #insert into flip (name,componentId1,componentId2,sets) values ('Doctor to Headhunter Flip',1,2,2);
+
+#Basic api call
+#https://www.pathofexile.com/api/trade/search/Legion?source=
 
 #Actual Data base entry
 insert into component (name,query,fullSet) values ('The Doctor','{"query":{"status":{"option":"online"},"type":"The Doctor","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',8);
@@ -116,7 +119,46 @@ insert into flip (name,componentId1,componentId2,sets) values ('Beauty Through D
 insert into component (name,query,fullSet) values ('The King''s Path','{"query":{"status":{"option":"online"},"name":"The King''s Path","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
 insert into component (name,query,fullSet) values ('Kaom''s Sign','{"query":{"status":{"option":"online"},"name":"Kaom''s Sign","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
 insert into component (name,query,fullSet) values ('Kaom''s Way','{"query":{"status":{"option":"online"},"name":"Kaom''s Way","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1);
-insert into flip (name,componentId1,componentId2,componentId3,sets) values ('The Magnate to The Nomad Flip',55,56,57,4);
+insert into flip (name,componentId1,componentId2,componentId3,sets) values ('Kaom''s Sign to Kaom''s Way Flip',55,56,57,4);
 insert into component (name,query,fullSet) values ('The Master','{"query":{"status":{"option":"online"},"type":"The Master","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',4); 
 insert into component (name,query,fullSet) values ('Bisco''s Collar','{"query":{"status":{"option":"online"},"name":"Bisco''s Collar","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
 insert into flip (name,componentId1,componentId2,sets) values ('The Master to Bisco''s Collar Flip',58,59,2);
+insert into component (name,query,fullSet) values ('The Celestial Stone','{"query":{"status":{"option":"online"},"type":"The Celestial Stone","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',10); 
+insert into component (name,query,fullSet) values ('Shaper i86 Opal Ring','{"query":{"status":{"option":"online"},"filters":{"misc_filters":{"filters":{"ilvl":{"min":86},"corrupted":{"option":false},"shaper_item":{"option":true}}},"type_filters":{"filters":{"rarity":{"option":"nonunique"}}},"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}},"type":"Opal Ring"},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('The Celestial Stone to Shaper i86 Opal Ring Flip',60,61,2);
+insert into component (name,query,fullSet) values ('Wealth and Power','{"query":{"status":{"option":"online"},"type":"Wealth and Power","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',11); 
+insert into component (name,query,fullSet) values ('Level 4 Enlighten','{"query":{"status":{"option":"online"},"type":"Enlighten Support","filters":{"misc_filters":{"filters":{"gem_level":{"min":4,"max":4}}},"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('Wealth and Power to Level 4 Enlighten Flip',62,63,2);
+insert into component (name,query,fullSet) values ('The Dragon''s Heart','{"query":{"status":{"option":"online"},"type":"The Dragon''s Heart","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',11); 
+insert into component (name,query,fullSet) values ('Level 4 Empower','{"query":{"status":{"option":"online"},"type":"Empower Support","filters":{"misc_filters":{"filters":{"gem_level":{"min":4,"max":4}}},"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('The Dragon''s Heart to Level 4 Empower Flip',64,65,2);
+insert into component (name,query,fullSet) values ('The Polymath','{"query":{"status":{"option":"online"},"type":"The Polymath","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',4); 
+insert into component (name,query,fullSet) values ('Astramentis','{"query":{"status":{"option":"online"},"name":"Astramentis","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('The Polymath to Astramentis Flip',66,67,2);
+insert into component (name,query,fullSet) values ('The Soul','{"query":{"status":{"option":"online"},"type":"The Soul","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',9); 
+insert into component (name,query,fullSet) values ('Soul Taker','{"query":{"status":{"option":"online"},"name":"Soul Taker","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('The Soul to Soul Taker Flip',68,69,2);
+insert into component (name,query,fullSet) values ('Might is Right','{"query":{"status":{"option":"online"},"type":"Might is Right","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',9); 
+insert into component (name,query,fullSet) values ('Trypanon','{"query":{"status":{"option":"online"},"name":"Trypanon","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('Might is Right to Trypanon Flip',70,71,2);
+insert into component (name,query,fullSet) values ('The Beast','{"query":{"status":{"option":"online"},"type":"The Beast","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',6); 
+insert into component (name,query,fullSet) values ('Belly of the Beast','{"query":{"status":{"option":"online"},"name":"Belly of the Beast","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('The Beast to Belly of the Beast Flip',72,73,2);
+insert into component (name,query,fullSet) values ('The Brittle Emperor','{"query":{"status":{"option":"online"},"type":"The Brittle Emperor","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',8); 
+insert into component (name,query,fullSet) values ('Voll''s Devotion','{"query":{"status":{"option":"online"},"name":"Voll''s Devotion","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('The Brittle Emperor to Voll''s Devotion Flip',74,75,2);
+insert into component (name,query,fullSet) values ('The Deep Ones','{"query":{"status":{"option":"online"},"type":"The Deep Ones","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',5); 
+insert into component (name,query,fullSet) values ('Tidebreaker','{"query":{"status":{"option":"online"},"name":"Tidebreaker","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('The Deep Ones to Tidebreaker Flip',76,77,2);
+insert into component (name,query,fullSet) values ('The Formless Sea','{"query":{"status":{"option":"online"},"type":"The Formless Sea","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',7); 
+insert into component (name,query,fullSet) values ('Varunastra','{"query":{"status":{"option":"online"},"name":"Varunastra","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('The Formless Sea to Varunastra Flip',78,79,2);
+insert into component (name,query,fullSet) values ('The Offering','{"query":{"status":{"option":"online"},"type":"The Offering","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',6); 
+insert into component (name,query,fullSet) values ('Shavronne''s Wrappings','{"query":{"status":{"option":"online"},"name":"Shavronne''s Wrappings","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('The Offering to Shavronne''s Wrappings Flip',80,81,2);
+insert into component (name,query,fullSet) values ('The Scavenger','{"query":{"status":{"option":"online"},"type":"The Scavenger","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',8); 
+insert into component (name,query,fullSet) values ('Carcass Jack','{"query":{"status":{"option":"online"},"name":"Carcass Jack","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('The Scavenger to Carcass Jack Flip',82,83,2);
+insert into component (name,query,fullSet) values ('The Valley of Steel Boxes','{"query":{"status":{"option":"online"},"type":"The Valley of Steel Boxes","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',9); 
+insert into component (name,query,fullSet) values ('Monstrous Treasure','{"query":{"status":{"option":"online"},"name":"Monstrous Treasure","filters":{"trade_filters":{"filters":{"sale_type":{"option":"priced"}}}}},"sort":{"price":"asc"}}',1); 
+insert into flip (name,componentId1,componentId2,sets) values ('The Valley of Steel Boxes to Monstrous Treasure Flip',84,85,2);
