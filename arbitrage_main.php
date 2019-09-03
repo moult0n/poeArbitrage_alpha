@@ -3,10 +3,10 @@ include_once 'framework.php';
 include 'itemAnalysis.php';
 include_once 'poeNinjaConversion.php';
 
-$league = 'Legion';
+$league = 'Standard';
 $serverTick = 0;
 $urlString = getUrlStringForLeague($league);
-$urlStringRedirec = 'https://www.pathofexile.com/trade/search/Legion/';
+$urlStringRedirec = 'https://www.pathofexile.com/trade/search/' . $league . '/';
 $currencyArray = ['exa','chaos'];
 $queryFlip = "select * from flip";
 static $componentBaseQuery = "select * from component where id = ";
